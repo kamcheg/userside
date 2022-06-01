@@ -68,7 +68,15 @@ export default {
         })
       }
 
-      const allMarkersFromApi = await Promise.all(promiseArr)
+      let allMarkersFromApi
+      try {
+        this.$store.commit('loading/setLoad', true)
+        allMarkersFromApi = await Promise.all(promiseArr)
+      } catch (e) {
+        console.log(e)
+      } finally {
+        this.$store.commit('loading/setLoad', false)
+      }
 
       allMarkersFromApi.forEach((i) => {
         const nodes = i.data?.nodes ?? []

@@ -1,11 +1,19 @@
 <template>
-  <RouterView />
+  <DefaultLayout>
+    <RouterView />
+  </DefaultLayout>
 </template>
 
-<style lang="scss">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+<script>
+import DefaultLayout from '@/layouts/DefaultLayout'
+
+export default {
+  name: 'App',
+  components: {
+    DefaultLayout
+  }
 }
+</script>
+
+<style lang="scss">
 </style>
